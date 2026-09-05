@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เมนูจัดปาร์ตี้วันเกิด - Cotton Candy Kids Cafe</title>
+<meta property="og:title" content="เมนูจัดปาร์ตี้วันเกิด - Cotton Candy Kids Cafe">
+<meta property="og:description" content="เลือกเมนูปาร์ตี้วันเกิดของลูกน้อย แล้วส่งออเดอร์ให้ร้านได้เลย">
+<meta name="description" content="แบบฟอร์มเลือกเมนูจัดปาร์ตี้วันเกิด Cotton Candy Kids Cafe">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chonburi&family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF7EE;
+    --paper:#FFFFFF;
+    --pink:#FF7FA6;
+    --pink-soft:#FFE1EC;
+    --blue:#6FC3E8;
+    --blue-soft:#E3F5FC;
+    --yellow:#FFC94D;
+    --mint:#8FDDC0;
+    --plum:#4A2545;
+    --plum-soft:#7A5C77;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    font-family:'Mitr',sans-serif;
+    color:var(--plum);
+    padding:28px 14px 60px;
+  }
+  .sheet{
+    max-width:640px;
+    margin:0 auto;
+    background:var(--paper);
+    border-radius:28px;
+    padding:0 0 28px;
+    overflow:hidden;
+    box-shadow:0 18px 40px rgba(74,37,69,0.10);
+  }
+  .hero{
+    position:relative;
+    background:linear-gradient(160deg,var(--pink) 0%,#FFA5C2 55%,var(--yellow) 100%);
+    padding:30px 26px 36px;
+    text-align:center;
+    color:#fff;
+  }
+  .hero-art{width:150px; height:auto; display:block; margin:0 auto 10px; overflow:visible;}
+  .cafe-name{font-family:'Chonburi',cursive; font-size:24px; margin:0 0 6px; text-shadow:0 2px 0 rgba(74,37,69,0.15);}
+  .hero h1{font-family:'Chonburi',cursive; font-size:30px; margin:6px 0 4px; line-height:1.3;}
+  .hero p{margin:2px 0 0; font-size:14px; opacity:0.95;}
+
+  .howto{
+    margin:18px 20px 0;
+    background:var(--plum);
+    color:#fff;
+    border-radius:16px;
+    padding:12px 18px;
+    font-size:13px;
+    text-align:center;
+    box-shadow:0 8px 18px rgba(74,37,69,0.25);
+  }
+
+  section{padding:26px 26px 0;}
+  .sec-title{display:flex; align-items:baseline; gap:10px; margin-bottom:4px;}
+  .sec-title h2{font-family:'Chonburi',cursive; font-size:20px; margin:0; color:var(--pink);}
+  .sec-note{font-size:12.5px; color:var(--plum-soft); background:var(--pink-soft); padding:3px 10px; border-radius:20px; white-space:nowrap;}
+  .sec-desc{font-size:12.5px; color:var(--plum-soft); margin:2px 0 14px;}
+  .counter{font-size:12px; color:#fff; background:var(--pink); padding:2px 10px; border-radius:20px;}
+
+  .item{border:1.5px dashed #F0D5DE; border-radius:16px; padding:12px 14px; margin-bottom:10px;}
+  .item-row{display:flex; align-items:flex-start; gap:10px;}
+  .item-row label.name{font-size:15px; font-weight:500; flex:1; padding-top:1px;}
+  input[type=checkbox], input[type=radio]{
+    appearance:none; -webkit-appearance:none;
+    width:20px;height:20px; min-width:20px;
+    border:2px solid var(--pink); border-radius:7px;
+    position:relative; cursor:pointer; top:1px;
+  }
+  input[type=radio]{border-radius:50%; width:16px;height:16px; border-color:var(--blue);} 
+  input[type=checkbox]:checked{background:var(--pink);} 
+  input[type=checkbox]:disabled{opacity:0.35; cursor:not-allowed;} 
+  input[type=checkbox]:checked::after{content:""; position:absolute; left:6px; top:2px; width:5px; height:10px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(40deg);} 
+  input[type=radio]:checked{background:var(--blue);} 
+  input[type=radio]:checked::after{content:""; position:absolute; left:3px; top:3px; width:6px; height:6px; border-radius:50%; background:#fff;}
+
+  .subopts{display:flex; flex-wrap:wrap; gap:8px 14px; margin:8px 0 0 30px;}
+  .subopts .opt{display:flex; align-items:center; gap:6px; font-size:13px; color:var(--plum-soft);} 
+
+  .drink-card{background:var(--blue-soft); border-radius:16px; padding:14px 16px; margin-bottom:10px;}
+
+  .footer-form{margin:28px 26px 0; background:var(--pink-soft); border-radius:18px; padding:18px 18px 14px;} 
+  .ff-row{display:flex; gap:16px; margin-bottom:14px; flex-wrap:wrap;} 
+  .ff-field{flex:1; min-width:140px;} 
+  .ff-field span{display:block; font-size:12px; color:var(--plum-soft); margin-bottom:4px;} 
+  .ff-field .line{border:none; border-bottom:1.5px solid var(--pink); background:transparent; width:100%; font-family:'Mitr',sans-serif; font-size:14px; padding:4px 2px; color:var(--plum);} 
+  .ff-field .line:focus{outline:none; border-color:var(--plum);} 
+
+  .submit-wrap{padding:22px 26px 0; text-align:center;} 
+  .submit-btn{ 
+    background:var(--plum); color:#fff; border:none; border-radius:30px; 
+    padding:14px 36px; font-family:'Mitr',sans-serif; font-size:16px; font-weight:600; 
+    cursor:pointer; box-shadow:0 10px 22px rgba(74,37,69,0.25); 
+  } 
+  .submit-btn:disabled{opacity:0.5; cursor:not-allowed;} 
+  .submit-msg{margin-top:10px; font-size:13px; min-height:18px;} 
+  .submit-msg.ok{color:#2f9e6b;} 
+  .submit-msg.err{color:#e0567c;} 
+
+  .brandline{text-align:center; margin-top:22px; font-size:12px; color:var(--plum-soft);} 
+
+  .admin-toggle{ 
+    display:block; margin:16px auto 0; background:none; border:none; 
+    color:var(--plum-soft); font-size:11.5px; text-decoration:underline; cursor:pointer; 
+  } 
+
+  /* ADMIN VIEW */ 
+  #adminView{display:none;} 
+  .order-card{ 
+    border:1.5px solid var(--pink-soft); border-radius:14px; padding:14px 16px; margin-bottom:12px; text-align:left; 
+  } 
+  .order-card h3{margin:0 0 6px; font-size:15px; color:var(--pink);} 
+  .order-card .meta{font-size:12px; color:var(--plum-soft); margin-bottom:8px;} 
+  .order-card ul{margin:4px 0; padding-left:20px; font-size:13.5px;} 
+  .empty-note{font-size:13px; color:var(--plum-soft); text-align:center; padding:20px 0;} 
+
+  @media print{ body{background:#fff; padding:0;} .sheet{box-shadow:none; border-radius:0;} .submit-wrap,.admin-toggle{display:none;} } 
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="hero">
+    <svg class="hero-art" viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg">
+      <!-- left balloon -->
+      <ellipse cx="34" cy="46" rx="20" ry="24" fill="#fff" opacity="0.92"/>
+      <ellipse cx="27" cy="38" rx="6" ry="8" fill="#ffffff" opacity="0.55"/>
+      <path d="M34 70 Q30 82 34 92" stroke="#fff" stroke-width="2" fill="none" opacity="0.85"/>
+      <!-- right balloon -->
+      <ellipse cx="186" cy="40" rx="18" ry="22" fill="#fff" opacity="0.92"/>
+      <ellipse cx="180" cy="32" rx="5" ry="7" fill="#ffffff" opacity="0.55"/>
+      <path d="M186 62 Q190 74 186 84" stroke="#fff" stroke-width="2" fill="none" opacity="0.85"/>
+      <!-- confetti -->
+      <circle cx="66" cy="24" r="3.5" fill="#fff" opacity="0.8"/>
+      <circle cx="150" cy="18" r="3" fill="#fff" opacity="0.7"/>
+      <circle cx="106" cy="14" r="2.5" fill="#fff" opacity="0.75"/>
+      <circle cx="60" cy="100" r="2.5" fill="#fff" opacity="0.6"/>
+      <circle cx="160" cy="102" r="3" fill="#fff" opacity="0.6"/>
+      <!-- cake -->
+      <rect x="78" y="86" width="64" height="30" rx="6" fill="#fff"/>
+      <rect x="78" y="86" width="64" height="10" rx="5" fill="#FFE1EC"/>
+      <rect x="86" y="66" width="48" height="24" rx="6" fill="#fff"/>
+      <rect x="86" y="66" width="48" height="9" rx="4.5" fill="#FFE1EC"/>
+      <rect x="108" y="50" width="4" height="18" rx="2" fill="#fff"/>
+      <path d="M110 44 Q113 48 110 52 Q107 48 110 44 Z" fill="#FFE1EC"/>
+    </svg>
+    <div class="cafe-name">Cotton Candy Kids Cafe</div>
+    <h1>เมนูจัดปาร์ตี้วันเกิด</h1>
+    <p>สำหรับงาน Private Party — เลือกเมนูแล้วกดส่งออเดอร์ได้เลย</p>
+  </div>
+
+  <div class="howto" id="mainHowto">✓ ติ๊กเครื่องหมายถูกเพื่อเลือกเมนู &nbsp;•&nbsp; วงกลม = เลือกได้ 1 ตัวเลือกต่อเมนู</div>
+
+  <div id="customerView">
+
+  <!-- MAIN DISHES -->
+  <section>
+    <div class="sec-title"><h2>อาหารจานหลัก</h2><span class="sec-note">เลือกได้ 2 อย่าง</span></div>
+    <div class="sec-desc">เลือก 2 เมนูจากรายการด้านล่าง แล้วเลือกชนิดเนื้อสัตว์ของแต่ละจาน</div>
+
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m1"><label class="name" for="m1">สปาเก็ตตี้คาโบนาร่า</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="m1p" value="เบคอน">เบคอน</label>
+        <label class="opt"><input type="radio" name="m1p" value="แฮม">แฮม</label>
+        <label class="opt"><input type="radio" name="m1p" value="ไส้กรอก">ไส้กรอก</label>
+      </div>
+    </div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m2"><label class="name" for="m2">สปาเก็ตตี้ผัดกระเพรา</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="m2p" value="หมู">หมู</label>
+        <label class="opt"><input type="radio" name="m2p" value="ไก่">ไก่</label>
+        <label class="opt"><input type="radio" name="m2p" value="กุ้ง">กุ้ง</label>
+      </div>
+    </div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m3"><label class="name" for="m3">สปาเก็ตตี้ซอสมะเขือเทศ</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="m3p" value="หมู">หมู</label>
+        <label class="opt"><input type="radio" name="m3p" value="ไก่">ไก่</label>
+        <label class="opt"><input type="radio" name="m3p" value="ไส้กรอก">ไส้กรอก</label>
+      </div>
+    </div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m4"><label class="name" for="m4">สปาเก็ตตี้เบคอนผัดพริกแห้ง</label></div></div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m5"><label class="name" for="m5">ข้าวผัด</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="m5p" value="หมู">หมู</label>
+        <label class="opt"><input type="radio" name="m5p" value="ไก่">ไก่</label>
+        <label class="opt"><input type="radio" name="m5p" value="กุ้ง">กุ้ง</label>
+      </div>
+    </div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m6"><label class="name" for="m6">ข้าวผัดกระเพรา</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="m6p" value="หมู">หมู</label>
+        <label class="opt"><input type="radio" name="m6p" value="ไก่">ไก่</label>
+        <label class="opt"><input type="radio" name="m6p" value="กุ้ง">กุ้ง</label>
+      </div>
+    </div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="mainbox" id="m7"><label class="name" for="m7">ผัดไทย</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="m7p" value="หมู">หมู</label>
+        <label class="opt"><input type="radio" name="m7p" value="ไก่">ไก่</label>
+        <label class="opt"><input type="radio" name="m7p" value="กุ้ง">กุ้ง</label>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin:10px 0 4px;"><span class="counter" id="mainCount">เลือกแล้ว 0/2</span></div>
+  </section>
+
+  <!-- SNACKS -->
+  <section>
+    <div class="sec-title"><h2>เมนูทานเล่น</h2><span class="sec-note">เลือกได้ 2 อย่าง</span></div>
+    <div class="sec-desc">เลือก 2 เมนูจากรายการด้านล่าง</div>
+
+    <div class="item"><div class="item-row"><input type="checkbox" class="snackbox" id="s1"><label class="name" for="s1">เฟรนช์ฟราย</label></div></div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="snackbox" id="s2"><label class="name" for="s2">นักเก็ต</label></div></div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="snackbox" id="s3"><label class="name" for="s3">ชีสบอล</label></div></div>
+    <div class="item"><div class="item-row"><input type="checkbox" class="snackbox" id="s4"><label class="name" for="s4">ไส้กรอก</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="s4p" value="แบบทอด">แบบทอด</label>
+        <label class="opt"><input type="radio" name="s4p" value="แบบย่าง">แบบย่าง</label>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin:10px 0 4px;"><span class="counter" id="snackCount">เลือกแล้ว 0/2</span></div>
+  </section>
+
+  <!-- DRINKS -->
+  <section>
+    <div class="sec-title"><h2>เครื่องดื่ม</h2></div>
+    <div class="sec-desc">เสิร์ฟพร้อมทุกออเดอร์ 2 แก้ว</div>
+    <div class="drink-card"><div class="item-row"><input type="checkbox" id="d1" checked disabled><label class="name" for="d1">โกโก้เย็น</label></div></div>
+    <div class="drink-card"><div class="item-row"><input type="checkbox" id="d2" checked disabled><label class="name" for="d2">น้ำเปล่า</label></div>
+      <div class="subopts">
+        <label class="opt"><input type="radio" name="d2p" value="เลมอน">เลมอน</label>
+        <label class="opt"><input type="radio" name="d2p" value="ธรรมดา">ธรรมดา</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER INFO -->
+  <div class="footer-form">
+    <div class="ff-row">
+      <div class="ff-field"><span>ชื่อลูกค้า</span><input class="line" id="cName" type="text"></div>
+      <div class="ff-field"><span>วันที่จัดงาน</span><input class="line" id="cDate" type="text" placeholder="เช่น 20/09/2026"></div>
+    </div>
+    <div class="ff-row">
+      <div class="ff-field"><span>เบอร์ติดต่อ</span><input class="line" id="cPhone" type="text"></div>
+      <div class="ff-field"><span>จำนวนคน</span><input class="line" id="cGuests" type="text"></div>
+    </div>
+  </div>
+
+  <div class="submit-wrap">
+    <button class="submit-btn" id="submitBtn">ส่งออเดอร์</button>
+    <div class="submit-msg" id="submitMsg"></div>
+  </div>
+
+  </div><!-- /customerView -->
+
+  <!-- ADMIN VIEW -->
+  <div id="adminView">
+    <section>
+      <div class="sec-title"><h2>ออเดอร์ที่ลูกค้าส่งเข้ามา</h2></div>
+      <div id="ordersList"><div class="empty-note">กำลังโหลด...</div></div>
+    </section>
+  </div>
+
+  <button class="admin-toggle" id="adminToggle">สำหรับร้าน: ดูออเดอร์ทั้งหมด</button>
+  <div class="brandline">Cotton Candy Kids Cafe · ใบเลือกเมนูปาร์ตี้วันเกิด</div>
+</div>
+
+<script>
+/* ----- small data maps ----- */
+const mainIds = ['m1','m2','m3','m4','m5','m6','m7'];
+const snackIds = ['s1','s2','s3','s4'];
+const mainNames = {m1:'สปาเก็ตตี้คาโบนาร่า',m2:'สปาเก็ตตี้ผัดกระเพรา',m3:'สปาเก็ตตี้ซอสมะเขือเทศ',m4:'สปาเก็ตตี้เบคอนผัดพริกแห้ง',m5:'ข้าวผัด',m6:'ข้าวผัดกระเพรา',m7:'ผัดไทย'};
+const snackNames = {s1:'เฟรนช์ฟราย',s2:'นักเก็ต',s3:'ชีสบอล',s4:'ไส้กรอก'};
+
+/* ----- UI helpers: limit selections ----- */
+function limitGroup(ids, counterEl, max){
+  const checked = ids.filter(id => document.getElementById(id).checked);
+  counterEl.textContent = `เลือกแล้ว ${checked.length}/${max}`;
+  ids.forEach(id => {
+    const box = document.getElementById(id);
+    box.disabled = (checked.length >= max && !box.checked);
+  });
+}
+function refreshMain(){ limitGroup(mainIds, document.getElementById('mainCount'), 2); }
+function refreshSnack(){ limitGroup(snackIds, document.getElementById('snackCount'), 2); }
+mainIds.forEach(id => document.getElementById(id).addEventListener('change', refreshMain));
+snackIds.forEach(id => document.getElementById(id).addEventListener('change', refreshSnack));
+refreshMain(); refreshSnack();
+
+/* ----- radio value helper ----- */
+function getRadioValue(name){
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : null;
+}
+
+/* ----- storage shim using localStorage with Promise API ----- */
+window.storage = {
+  set: (key, value, _async) => new Promise(resolve => {
+    try {
+      localStorage.setItem(key, value);
+      resolve(true);
+    } catch(e) {
+      console.error('storage.set error', e);
+      resolve(false);
+    }
+  }),
+  get: (key, _async) => new Promise(resolve => {
+    try {
+      const v = localStorage.getItem(key);
+      resolve(v !== null ? { value: v } : null);
+    } catch(e){
+      console.error('storage.get error', e);
+      resolve(null);
+    }
+  }),
+  list: (prefix = '', _async) => new Promise(resolve => {
+    try {
+      const keys = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && k.indexOf(prefix) === 0) keys.push(k);
+      }
+      resolve({ keys });
+    } catch(e){
+      console.error('storage.list error', e);
+      resolve({ keys: [] });
+    }
+  })
+};
+
+/* ----- submit order ----- */
+async function submitOrder(){
+  const msg = document.getElementById('submitMsg');
+  msg.className = 'submit-msg'; msg.textContent = '';
+
+  const mains = mainIds.filter(id => document.getElementById(id).checked);
+  const snacks = snackIds.filter(id => document.getElementById(id).checked);
+  const name = document.getElementById('cName').value.trim();
+
+  if(!name){ msg.className='submit-msg err'; msg.textContent='กรุณากรอกชื่อลูกค้า'; return; }
+  if(mains.length !== 2){ msg.className='submit-msg err'; msg.textContent='กรุณาเลือกอาหารจานหลัก 2 อย่าง'; return; }
+  if(snacks.length !== 2){ msg.className='submit-msg err'; msg.textContent='กรุณาเลือกเมนูทานเล่น 2 อย่าง'; return; }
+
+  // ensure protein chosen for selected mains
+  for (const id of mains){
+    const prot = getRadioValue(id + 'p');
+    if(!prot){
+      msg.className='submit-msg err';
+      msg.textContent = 'กรุณาเลือกชนิดเนื้อสัตว์สำหรับจานหลักที่เลือกทั้งหมด';
+      return;
+    }
+  }
+  // if snack s4 selected, ensure style chosen
+  if(snacks.includes('s4')){
+    if(!getRadioValue('s4p')){
+      msg.className='submit-msg err';
+      msg.textContent = 'กรุณาเลือกวิธีปรุงสำหรับเมนูไส้กรอก';
+      return;
+    }
+  }
+
+  const order = {
+    id: 'order_' + Date.now(),
+    submittedAt: new Date().toISOString(),
+    customer: {
+      name,
+      date: document.getElementById('cDate').value.trim(),
+      phone: document.getElementById('cPhone').value.trim(),
+      guests: document.getElementById('cGuests').value.trim()
+    },
+    mains: mains.map(id => ({ dish: mainNames[id], protein: getRadioValue(id+'p') })),
+    snacks: snacks.map(id => ({ dish: snackNames[id], style: id==='s4' ? getRadioValue('s4p') : null })),
+    drinks: { cocoa: true, water: getRadioValue('d2p') || 'ธรรมดา' }
+  };
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  try{
+    const result = await window.storage.set(order.id, JSON.stringify(order), true);
+    if(result){
+      msg.className='submit-msg ok';
+      msg.textContent='ส่งออเดอร์เรียบร้อยแล้ว ทางร้านได้รับข้อมูลแล้วค่ะ';
+      // reset form
+      mainIds.forEach(id => { document.getElementById(id).checked = false; });
+      snackIds.forEach(id => { document.getElementById(id).checked = false; });
+      document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+      document.getElementById('cName').value = '';
+      document.getElementById('cDate').value = '';
+      document.getElementById('cPhone').value = '';
+      document.getElementById('cGuests').value = '';
+      refreshMain(); refreshSnack();
+    } else {
+      msg.className='submit-msg err';
+      msg.textContent='ส่งไม่สำเร็จ กรุณาลองใหม่อีกครั้ง';
+    }
+  } catch(e){
+    console.error(e);
+    msg.className='submit-msg err';
+    msg.textContent='เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง';
+  }
+  btn.disabled = false;
+}
+document.getElementById('submitBtn').addEventListener('click', submitOrder);
+
+/* ----- load orders for admin ----- */
+async function loadOrders(){
+  const list = document.getElementById('ordersList');
+  list.innerHTML = '<div class="empty-note">กำลังโหลด...</div>';
+  try{
+    const keys = await window.storage.list('order_', true);
+    if(!keys || !keys.keys || keys.keys.length === 0){
+      list.innerHTML = '<div class="empty-note">ยังไม่มีออเดอร์เข้ามา</div>';
+      return;
+    }
+    const orders = [];
+    for(const k of keys.keys){
+      try{
+        const r = await window.storage.get(k, true);
+        if(r && r.value) {
+          try { orders.push(JSON.parse(r.value)); } catch(e){}
+        }
+      }catch(e){}
+    }
+    orders.sort((a,b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+    list.innerHTML = orders.map(o => `
+      <div class="order-card">
+        <h3>${o.customer.name || '(ไม่ระบุชื่อ)'}</h3>
+        <div class="meta">วันจัดงาน: ${o.customer.date || '-'} · เบอร์: ${o.customer.phone || '-'} · จำนวนคน: ${o.customer.guests || '-'}</div>
+        <strong>จานหลัก</strong>
+        <ul>${o.mains.map(m => `<li>${m.dish}${m.protein ? ' ('+m.protein+')' : ''}</li>`).join('')}</ul>
+        <strong>ทานเล่น</strong>
+        <ul>${o.snacks.map(s => `<li>${s.dish}${s.style ? ' ('+s.style+')' : ''}</li>`).join('')}</ul>
+        <strong>เครื่องดื่ม</strong>
+        <ul><li>โกโก้เย็น</li><li>น้ำเปล่า (${o.drinks.water})</li></ul>
+        <div class="meta">ส่งเมื่อ: ${new Date(o.submittedAt).toLocaleString('th-TH')}</div>
+      </div>
+    `).join('');
+  } catch(e){
+    console.error(e);
+    list.innerHTML = '<div class="empty-note">โหลดข้อมูลไม่สำเร็จ</div>';
+  }
+}
+
+/* ----- admin toggle ----- */
+let adminOpen = false;
+document.getElementById('adminToggle').addEventListener('click', () => {
+  adminOpen = !adminOpen;
+  document.getElementById('customerView').style.display = adminOpen ? 'none' : 'block';
+  document.getElementById('adminView').style.display = adminOpen ? 'block' : 'none';
+  document.getElementById('mainHowto').style.display = adminOpen ? 'none' : 'block';
+  document.getElementById('adminToggle').textContent = adminOpen ? 'กลับไปหน้าลูกค้า' : 'สำหรับร้าน: ดูออเดอร์ทั้งหมด';
+  if(adminOpen) loadOrders();
+});
+</script>
+</body>
+</html>
